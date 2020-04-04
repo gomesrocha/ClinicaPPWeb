@@ -41,7 +41,18 @@
 
         </b:navBar>
         <b:jumbotron>
-            
+            <h3>FOLHA DE PAGAMENTO</h3>
+            <h:form>
+                <h:outputText value="Salário:" /> <b:inputText value="#{folhaPagamentoBeans.salarioBruto}"/> <p />
+                <b:commandButton value="Calcular Folha de Pagamento" action="#{folhaPagamentoBeans.CalcularFolhaPagamento()}" />
+                <hr />
+                <h:outputText value="INSS:" /> <h:outputText value="#{folhaPagamentoBeans.inss}" /> <p />
+                <h:outputText value="IRRF:" /> <h:outputText value="#{folhaPagamentoBeans.irrf}" /> <p />
+                <h:outputText value="Salário Bruto:" /> <h:outputText value="#{folhaPagamentoBeans.salarioLiquido}" /> <p />
+                
+                
+                
+            </h:form>
         </b:jumbotron>
         <b:container>
             <b:row>
