@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      dir="ltr" >
+    <h:head>
+        <title>Clinica|Web - PP</title>
+        <meta name="author" content="Fabio Gomes Rocha" />
+    </h:head>
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:dropMenu value="Cadastros">
+                    <b:navLink value="Paciente" href="cadAquisitor.xhtml"></b:navLink>
+                    <b:navLink value="Médico" href="cadFuncao.xhtml"></b:navLink>
+                    <b:navLink value="Funções no aquisitor" href="vincularFuncao.xhtml"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Agenda"></b:navLink>
+                </b:dropMenu>
+
+                <b:dropMenu value="Relatórios">
+                    <b:navLink value="Paciente" href="#"></b:navLink>
+                    <b:navLink value="Medico" href="#"></b:navLink>
+                    <b:navLink value="Agendas" href="#"></b:navLink>
+                    <b:navLink value="FolhaPagamento" href="FolhaPagamento.xhtml"></b:navLink>
+                    
+                </b:dropMenu>
+
+                <b:dropMenu value="Meu Perfil">
+                    <b:navLink value="Configuração" href="#"></b:navLink>
+                </b:dropMenu>
+
+                <b:navLink value="Sobre" href="#"></b:navLink>
+                <b:navLink value="Contato" href="#"></b:navLink>                 
+            </b:navbarLinks>
+            <h:form styleClass="navbar-form navbar-right">
+                <div class="form-group">
+                    <font color="#ffffff">#{usuarioBeans.nome}</font>
+                </div>
+            </h:form>
+
+        </b:navBar>
+        <b:jumbotron>
+            <h3>Cadastro de Paciente</h3>
+            <h:form>
+                <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" /> <br />
+                <b:inputText value="#{pacienteBeans.p.email}" placeholder="Entre com o email do paciente" label="Email do Paciente" /> <br />
+                
+                <b:commandButton value="Calcular Folha de Pagamento" action="#{pacienteBeans.salvarPaciente()}" />
+                
+                
+                
+            </h:form>
+        </b:jumbotron>
+        <b:container>
+            <b:row>
+                <b:column col-md="6">
+                    <h2>ClinicaWeb</h2>
+                    <p>Conheça mais sobre o sistema clinica web</p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+                <b:column col-md="6">
+                    <h2>JSF</h2>
+                    <p>Como o sistema foi desenvolvido</p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+            </b:row>
+
+            <hr></hr>
+
+            <footer>
+                <p>© Fabio Gomes Rocha - 2020</p>
+            </footer>
+        </b:container>
+    </h:body>
+</html>
