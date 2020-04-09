@@ -31,7 +31,7 @@ public class PacienteBeans {
         em.persist(p);
         em.getTransaction().commit();
         em.close();
-        return "dashboard";
+        return "pacientes";
     }
 
     public Paciente getP() {

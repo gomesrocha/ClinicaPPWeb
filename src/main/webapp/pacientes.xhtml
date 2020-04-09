@@ -10,7 +10,7 @@
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
         <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
             <b:navbarLinks>
-                 <b:dropMenu value="Cadastros">
+                <b:dropMenu value="Cadastros">
                     <b:navLink value="Paciente" href="cadPaciente.xhtml"></b:navLink>
                     <b:navLink value="Médico" href="cadMedico.xhtml"></b:navLink>
                     <b:navLink></b:navLink>
@@ -40,18 +40,7 @@
 
         </b:navBar>
         <b:jumbotron>
-            <h3>FOLHA DE PAGAMENTO</h3>
-            <h:form>
-                <b:inputText value="#{folhaPagamentoBeans.salarioBruto}" placeholder="Entre com o salário bruto" label="Salário Bruto" /> <p />
-                <b:commandButton value="Calcular Folha de Pagamento" action="#{folhaPagamentoBeans.CalcularFolhaPagamento()}" />
-                <br />
-                <b><h:outputText value="INSS:" /> </b><h:outputText value="#{folhaPagamentoBeans.inss}" /> <p />
-                <b><h:outputText value="IRRF:" /> </b><h:outputText value="#{folhaPagamentoBeans.irrf}" /> <p />
-                <b><h:outputText value="Salário Bruto:" /></b> <h:outputText value="#{folhaPagamentoBeans.salarioLiquido}" /> <p />
-                
-                
-                
-            </h:form>
+            O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
         </b:jumbotron>
         <b:container>
             <b:row>

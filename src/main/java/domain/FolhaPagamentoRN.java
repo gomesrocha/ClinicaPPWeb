@@ -5,7 +5,7 @@ package domain;
  * @author Fabio Gomes Rocha
  */
 public class FolhaPagamentoRN {
-     private double salarioBruto;
+    private double salarioBruto;
     private double inss;
     private double irrf;
     private double salarioLiquido;

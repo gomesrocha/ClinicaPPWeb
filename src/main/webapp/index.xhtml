@@ -12,10 +12,11 @@
             <b:row>
                 <b:column>
                     <h:form>
-                        Nome: <b:inputText value="#{usuarioBeans.nome}" /> <br />
+                        Nome: <b:inputText value="#{usuarioBeans.nome}" required="true" required-message="Inserir o nome"/> <br />
                         Login: <b:inputText value="#{usuarioBeans.login}" /> <br />
                         Senha: <b:inputSecret value="#{usuarioBeans.senha}" /> <br />
                         <b:commandButton action="#{usuarioBeans.salvar()}" value="Login" />
+                        <h:messages />
                     </h:form>
                 </b:column>
             </b:row>
