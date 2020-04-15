@@ -9,10 +9,9 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class UsuarioBeans {
-
-    private String login, senha;
-    public UsuarioBeans() {
+public class BackupUsuarioBeans {
+    private String login, senha, nome;
+    public BackupUsuarioBeans() {
     }
 
     public String getLogin() {
@@ -30,8 +29,17 @@ public class UsuarioBeans {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    public String logarSistema(){
-        return "Folha"; // Retornar o nome da página que será aberta
+
+    public String getNome() {
+        return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String salvar(){
+        return "dashboard";
+    }
+    
     
 }
