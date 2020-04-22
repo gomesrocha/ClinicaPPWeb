@@ -31,7 +31,13 @@ public class UsuarioBeans {
         this.senha = senha;
     }
     public String logarSistema(){
-        return "Folha"; // Retornar o nome da página que será aberta
+        String pagina = "";
+        if(login.equals("admin") & senha.equals("admin")){
+            pagina="dashboard";
+        } else {
+            pagina="loginMsg";
+        }
+        return pagina; // Retornar o nome da página que será aberta
     }
     
 }

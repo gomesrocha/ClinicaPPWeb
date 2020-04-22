@@ -15,7 +15,7 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="Nome do médico: " />
                     <p:inputText value="#{medicoBeans.nome}" required="true" requiredMessage="Digite o nome do médico"/>
-                    <h:outputText value="CRM" /> <p:inputText />
+                    <h:outputText value="CRM" /> <p:inputText required="true" requiredMessage="Digite o CRM do médico"/>
                     <h:outputText value="Email do médico: " /> <p:inputText value="#{medicoBeans.email}"/>
                     <h:outputText value="Data de Nascimento:" /> <p:calendar />
                     <h:outputText value="Sexo: " /> 
