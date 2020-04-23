@@ -5,31 +5,56 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Clinica|Web - Cadastro de Médico</title>
     </h:head>
     <h:body>
         <center>
             <h:form>
                 <h1> Cadastro de Médico </h1>
                 <h:messages />
-                <h:panelGrid columns="2">
-                    <h:outputText value="Nome do médico: " />
-                    <p:inputText value="#{medicoBeans.nome}" required="true" requiredMessage="Digite o nome do médico"/>
-                    <h:outputText value="CRM" /> <p:inputText required="true" requiredMessage="Digite o CRM do médico"/>
-                    <h:outputText value="Email do médico: " /> <p:inputText value="#{medicoBeans.email}"/>
-                    <h:outputText value="Data de Nascimento:" /> <p:calendar />
-                    <h:outputText value="Sexo: " /> 
-                    <p:selectOneMenu>
-                        <f:selectItem itemLabel="Selecione o Sexo do médico" itemValue="" />
-                        <f:selectItem itemLabel="Masculino" itemValue="M" />
-                        <f:selectItem itemLabel="Feminino" itemValue="F" />
-                    </p:selectOneMenu>
-                </h:panelGrid>
-                <h:panelGrid columns="1">
-                    <h:outputText value="Observação" /> 
-                    <p:editor />
-                    <p:commandButton value="Cadastrar " action="#{medicoBeans.salvar()}" />
-                </h:panelGrid>
+                <p:accordionPanel>
+                    <p:tab title="Dados do médico">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nome do médico: " />
+                            <p:inputText value="#{medicoBeans.nome}" required="true" requiredMessage="Digite o nome do médico"/>
+                            <h:outputText value="CRM" /> <p:inputText required="true" requiredMessage="Digite o CRM do médico"/>
+                            <h:outputText value="Email do médico: " /> <p:inputText value="#{medicoBeans.email}"/>
+                            <h:outputText value="Data de Nascimento:" /> <p:calendar />
+                            <h:outputText value="Sexo: " /> 
+                            <p:selectOneMenu>
+                                <f:selectItem itemLabel="Selecione o Sexo do médico" itemValue="" />
+                                <f:selectItem itemLabel="Masculino" itemValue="M" />
+                                <f:selectItem itemLabel="Feminino" itemValue="F" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Observação">
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Observação" /> 
+                            <p:editor />
+
+                        </h:panelGrid>
+                    </p:tab>
+                    <p:tab title="Endereço">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Endereço: " /> 
+                            <p:inputText />
+                            <h:outputText value="Numero:" />
+                            <p:inputText />
+                            <h:outputText value="Complemento:" />
+                            <p:inputText />
+                            <h:outputText value="CEP:" />
+                            <p:inputMask mask="99999-999" />
+                            <h:outputText value="Bairro: " />
+                            <p:inputText />
+                            <h:outputText value="Cidade: " />
+                            <p:inputText />
+                            <h:outputText value="UF: " />
+                            <p:inputText />
+                        </h:panelGrid>
+                    </p:tab>
+                </p:accordionPanel> <p /> <br />
+                <p:commandButton value="Cadastrar " action="#{medicoBeans.salvar()}" />
             </h:form>
         </center>
     </h:body>
