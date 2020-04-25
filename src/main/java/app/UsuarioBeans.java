@@ -1,7 +1,9 @@
 package app;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -31,11 +33,14 @@ public class UsuarioBeans {
         this.senha = senha;
     }
     public String logarSistema(){
+        FacesContext context = FacesContext.getCurrentInstance();
         String pagina = "";
         if(login.equals("admin") & senha.equals("admin")){
             pagina="dashboard";
         } else {
-            pagina="loginMsg";
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+            "Usuário ou senha incorreto!", ""));
+            //pagina="loginMsg";
         }
         return pagina; // Retornar o nome da página que será aberta
     }
