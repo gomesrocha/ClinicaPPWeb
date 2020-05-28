@@ -2,74 +2,44 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui" 
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"
       dir="ltr" >
     <h:head>
         <title>Clinica|Web - PP</title>
         <meta name="author" content="Fabio Gomes Rocha" />
     </h:head>
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
-            <b:navbarLinks>
-                 <b:dropMenu value="Cadastros">
-                    <b:navLink value="Paciente" href="cadPaciente.xhtml"></b:navLink>
-                    <b:navLink value="Médico" href="cadMedico.xhtml"></b:navLink>
-                    <b:navLink></b:navLink>
-                    <b:navLink header="Agenda"></b:navLink>
-                </b:dropMenu>
+        <ui:composition template="./WEB-INF/template/modelo.xhtml">
+            <ui:define name="principal">
+                <h3>Cadastro de Paciente</h3>
+                <h:form>
+                    <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" required="true" requiredMessage="Digita a o nome zé...." /> <br />
+                    <b:inputText value="#{pacienteBeans.p.email}"  placeholder="Entre com o email do paciente" label="Email do Paciente">
+                        <f:facet name="prepend">
+                            <h:outputText value="@" />
+                        </f:facet>
+                    </b:inputText> <br />
 
-                <b:dropMenu value="Relatórios">
-                    <b:navLink value="Paciente" href="#"></b:navLink>
-                    <b:navLink value="Medico" href="#"></b:navLink>
-                    <b:navLink value="Agendas" href="#"></b:navLink>
-                    <b:navLink value="FolhaPagamento" href="FolhaPagamento.xhtml"></b:navLink>
-                    
-                </b:dropMenu>
+                    <b:inputText value="#{pacienteBeans.p.telefone}" mask="(99)9999-9999" placeholder="Entre com o telefone do paciente" label="Telefone do Paciente" /> <br />
 
-                <b:dropMenu value="Meu Perfil">
-                    <b:navLink value="Configuração" href="#"></b:navLink>
-                </b:dropMenu>
+                    <b:commandButton value="Cadastrar" action="#{pacienteBeans.salvarPaciente()}" />
+                    <b:messages />
 
-                <b:navLink value="Sobre" href="#"></b:navLink>
-                <b:navLink value="Contato" href="#"></b:navLink>                 
-            </b:navbarLinks>
-            <h:form styleClass="navbar-form navbar-right">
-                <div class="form-group">
-                    <font color="#ffffff">#{backupUsuarioBeans.nome}</font>
-                </div>
-            </h:form>
-
-        </b:navBar>
-        <b:jumbotron>
-            <h3>Cadastro de Paciente</h3>
-            <h:form>
-                <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" required="true" requiredMessage="Digita a o nome zé...." /> <br />
-                <b:inputText value="#{pacienteBeans.p.email}" placeholder="Entre com o email do paciente" label="Email do Paciente" /> <br />
-                
-                <b:commandButton value="Cadastrar" action="#{pacienteBeans.salvarPaciente()}" />
-                <b:messages />
-                
-                
-            </h:form>
-        </b:jumbotron>
-        <b:container>
-            <b:row>
-                <b:column col-md="6">
-                    <h2>ClinicaWeb</h2>
-                    <p>Conheça mais sobre o sistema clinica web</p>
-                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
-                </b:column>
-                <b:column col-md="6">
-                    <h2>JSF</h2>
-                    <p>Como o sistema foi desenvolvido</p>
-                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
-                </b:column>
-            </b:row>
-
-            <hr></hr>
-
-            <footer>
-                <p>© Fabio Gomes Rocha - 2020</p>
-            </footer>
-        </b:container>
+                    <b:dataTable 
+                        var="paciente"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        print="true">
+                        
+                    </b:dataTable>
+                </h:form>
+            </ui:define>
+            <ui:define name="coluna1">
+                <h2>Cadastro de paciente</h2>
+                <p>Usando o template no cadastro de paciente</p>
+                <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>

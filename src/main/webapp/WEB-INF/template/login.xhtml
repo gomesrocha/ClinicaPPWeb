@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      dir="ltr" >
+    <h:head>
+        <title>Clinica|Web - PP</title>
+        <meta name="author" content="Fabio Gomes Rocha" />
+    </h:head>
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:navLink value="Sobre" href="#"></b:navLink>
+                <b:navLink value="Contato" href="#"></b:navLink>                 
+            </b:navbarLinks>
+            <ui:insert name="login"></ui:insert>
+
+        </b:navBar>
+        <b:jumbotron>
+        <ui:insert name="principal"></ui:insert>
+     </b:jumbotron>
+        <b:container>
+            <b:row>
+                <b:column col-md="6">
+                    <b:column col-md="6">
+                    <h2>JSF</h2>
+                    <p>Como o sistema foi desenvolvido</p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+                </b:column>
+                <b:column col-md="6">
+                    <h2>JSF</h2>
+                    <p>Como o sistema foi desenvolvido</p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+            </b:row>
+
+            <hr></hr>
+
+            <footer>
+                <p>© Fabio Gomes Rocha - 2020</p>
+            </footer>
+        </b:container>
+    </h:body>
+</html>

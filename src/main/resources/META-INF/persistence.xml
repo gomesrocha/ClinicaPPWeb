@@ -5,6 +5,8 @@
     <class>infra.Paciente</class>
     <class>infra.Usuario</class>
     <class>infra.Medico</class>
+    <class>infra.Funcionario</class>
+    <class>infra.Folhapagamento</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clinicaweb?useTimezone=true&amp;serverTimezone=America/Sao_Paulo"/>

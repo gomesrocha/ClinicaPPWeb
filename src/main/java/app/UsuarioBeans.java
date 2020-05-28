@@ -1,5 +1,6 @@
 package app;
 
+import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -11,7 +12,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @SessionScoped
-public class UsuarioBeans {
+public class UsuarioBeans implements Serializable{
 
     private String login, senha;
     public UsuarioBeans() {
