@@ -2,83 +2,41 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui" 
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"
       dir="ltr" >
     <h:head>
         <title>Clinica|Web - PP</title>
         <meta name="author" content="Fabio Gomes Rocha" />
     </h:head>
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
-            <b:navbarLinks>
-                <b:dropMenu value="Cadastros">
-                    <b:navLink value="Paciente" href="cadPaciente.xhtml"></b:navLink>
-                    <b:navLink value="Médico" href="cadMedico.xhtml"></b:navLink>
-                    <b:navLink></b:navLink>
-                    <b:navLink header="Agenda"></b:navLink>
-                </b:dropMenu>
-
-                <b:dropMenu value="Relatórios">
-                    <b:navLink value="Paciente" href="#"></b:navLink>
-                    <b:navLink value="Medico" href="#"></b:navLink>
-                    <b:navLink value="Agendas" href="#"></b:navLink>
-                    <b:navLink value="FolhaPagamento" href="FolhaPagamento.xhtml"></b:navLink>
-                    
-                </b:dropMenu>
-
-                <b:dropMenu value="Meu Perfil">
-                    <b:navLink value="Configuração" href="#"></b:navLink>
-                </b:dropMenu>
-
-                <b:navLink value="Sobre" href="#"></b:navLink>
-                <b:navLink value="Contato" href="#"></b:navLink>                 
-            </b:navbarLinks>
-            <h:form styleClass="navbar-form navbar-right">
-                <div class="form-group">
-                    <font color="#ffffff">#{backupUsuarioBeans.nome}</font>
-                </div>
-            </h:form>
-
-        </b:navBar>
-        <b:jumbotron>
-            O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
-            <h:form>
-                <b:dataTable 
-                    value="#{pacienteBeans.pacientes}"
+        <ui:composition template="./WEB-INF/template/modelo.xhtml">
+            <ui:define name="principal">
+                O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
+                <h:form>
+                    <b:dataTable 
+                        value="#{pacienteBeans.pacientes}"
                         var="paciente"
                         excel="true"
                         csv="true"
                         pdf="true"
                         print="true">
-                    <b:dataTableColumn value="#{paciente.nome}" />
-                    <b:dataTableColumn value="#{paciente.telefone}" />
-                    <b:dataTableColumn value="#{paciente.celular}" />
-                    <b:dataTableColumn value="#{paciente.email}" />
-                    <b:dataTableColumn value="#{paciente.endereco}" />
-                    <b:dataTableColumn value="#{paciente.bairro}" />
-                    <b:dataTableColumn value="#{paciente.cidade}" />
+                        <b:dataTableColumn value="#{paciente.idpaciente}"  order="desc" label="ID" />
+                        <b:dataTableColumn value="#{paciente.nome}" />
+                        <b:dataTableColumn value="#{paciente.telefone}" />
+                        <b:dataTableColumn value="#{paciente.celular}" />
+                        <b:dataTableColumn value="#{paciente.email}" />
+                        <b:dataTableColumn value="#{paciente.endereco}" />
+                        <b:dataTableColumn value="#{paciente.bairro}" />
+                        <b:dataTableColumn value="#{paciente.cidade}" />
 
                     </b:dataTable>
-            </h:form>
-        </b:jumbotron>
-        <b:container>
-            <b:row>
-                <b:column col-md="6">
-                    <h2>ClinicaWeb</h2>
-                    <p>Conheça mais sobre o sistema clinica web</p>
-                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
-                </b:column>
-                <b:column col-md="6">
-                    <h2>JSF</h2>
-                    <p>Como o sistema foi desenvolvido</p>
-                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
-                </b:column>
-            </b:row>
-
-            <hr></hr>
-
-            <footer>
-                <p>© Fabio Gomes Rocha - 2020</p>
-            </footer>
-        </b:container>
+                </h:form>
+            </ui:define>
+            <ui:define name="coluna1">
+                <h2>Cadastro de paciente</h2>
+                <p>Usando o template no cadastro de paciente</p>
+                <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
