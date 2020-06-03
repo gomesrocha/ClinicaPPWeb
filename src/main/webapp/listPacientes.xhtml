@@ -41,6 +41,24 @@
         </b:navBar>
         <b:jumbotron>
             O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
+            <h:form>
+                <b:dataTable 
+                    value="#{pacienteBeans.pacientes}"
+                        var="paciente"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        print="true">
+                    <b:dataTableColumn value="#{paciente.nome}" />
+                    <b:dataTableColumn value="#{paciente.telefone}" />
+                    <b:dataTableColumn value="#{paciente.celular}" />
+                    <b:dataTableColumn value="#{paciente.email}" />
+                    <b:dataTableColumn value="#{paciente.endereco}" />
+                    <b:dataTableColumn value="#{paciente.bairro}" />
+                    <b:dataTableColumn value="#{paciente.cidade}" />
+
+                    </b:dataTable>
+            </h:form>
         </b:jumbotron>
         <b:container>
             <b:row>
