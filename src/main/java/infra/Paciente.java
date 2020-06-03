@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Fabio Gomes Rocha
+ * @author fabio
  */
 @Entity
 @Table(name = "paciente")
@@ -33,9 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Paciente.findByCelular", query = "SELECT p FROM Paciente p WHERE p.celular = :celular"),
     @NamedQuery(name = "Paciente.findByRg", query = "SELECT p FROM Paciente p WHERE p.rg = :rg"),
     @NamedQuery(name = "Paciente.findByCpf", query = "SELECT p FROM Paciente p WHERE p.cpf = :cpf"),
-    @NamedQuery(name = "Paciente.findByDiaNascimento", query = "SELECT p FROM Paciente p WHERE p.diaNascimento = :diaNascimento"),
-    @NamedQuery(name = "Paciente.findByMesNascimento", query = "SELECT p FROM Paciente p WHERE p.mesNascimento = :mesNascimento"),
-    @NamedQuery(name = "Paciente.findByAnoNascimento", query = "SELECT p FROM Paciente p WHERE p.anoNascimento = :anoNascimento"),
+    @NamedQuery(name = "Paciente.findByDataNascimento", query = "SELECT p FROM Paciente p WHERE p.dataNascimento = :dataNascimento"),
     @NamedQuery(name = "Paciente.findByEndereco", query = "SELECT p FROM Paciente p WHERE p.endereco = :endereco"),
     @NamedQuery(name = "Paciente.findByNumero", query = "SELECT p FROM Paciente p WHERE p.numero = :numero"),
     @NamedQuery(name = "Paciente.findByBairro", query = "SELECT p FROM Paciente p WHERE p.bairro = :bairro"),
@@ -64,12 +62,8 @@ public class Paciente implements Serializable {
     private String rg;
     @Column(name = "cpf")
     private String cpf;
-    @Column(name = "diaNascimento")
-    private String diaNascimento;
-    @Column(name = "mesNascimento")
-    private String mesNascimento;
-    @Column(name = "anoNascimento")
-    private String anoNascimento;
+    @Column(name = "dataNascimento")
+    private String dataNascimento;
     @Column(name = "endereco")
     private String endereco;
     @Column(name = "numero")
@@ -153,28 +147,12 @@ public class Paciente implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getDiaNascimento() {
-        return diaNascimento;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDiaNascimento(String diaNascimento) {
-        this.diaNascimento = diaNascimento;
-    }
-
-    public String getMesNascimento() {
-        return mesNascimento;
-    }
-
-    public void setMesNascimento(String mesNascimento) {
-        this.mesNascimento = mesNascimento;
-    }
-
-    public String getAnoNascimento() {
-        return anoNascimento;
-    }
-
-    public void setAnoNascimento(String anoNascimento) {
-        this.anoNascimento = anoNascimento;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEndereco() {

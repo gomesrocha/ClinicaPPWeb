@@ -13,18 +13,54 @@
             <ui:define name="principal">
                 <h3>Cadastro de Paciente</h3>
                 <h:form>
-                    <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" required="true" requiredMessage="Digita a o nome zé...." /> <br />
+                    <b:panelGrid columns="1">
+                    <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" 
+                                 required="true" requiredMessage="Digita a o nome zé...." /> 
+                    
                     <b:inputText value="#{pacienteBeans.p.email}"  placeholder="Entre com o email do paciente" label="Email do Paciente">
                         <f:facet name="prepend">
                             <h:outputText value="@" />
                         </f:facet>
-                    </b:inputText> <br />
+                    </b:inputText>
 
-                    <b:inputText value="#{pacienteBeans.p.telefone}" mask="(99)9999-9999" placeholder="Entre com o telefone do paciente" label="Telefone do Paciente" /> <br />
-
+                    <b:inputText value="#{pacienteBeans.p.telefone}" mask="(99)9999-9999" 
+                                 placeholder="Entre com o telefone do paciente" 
+                                 label="Telefone do Paciente">
+                        <f:facet name="prepend">
+                            <b:icon name="phone" />
+                        </f:facet>
+                    </b:inputText>
+                    <b:inputText value="#{pacienteBeans.p.celular}" mask="(99)9999-9999" 
+                                 placeholder="Entre com o celular do paciente" label="Celular do Paciente">
+                        <f:facet name="prepend">
+                            <b:icon name="phone" />
+                        </f:facet>
+                    </b:inputText>
+                    <b:inputText value="#{pacienteBeans.p.rg}" placeholder="Entre com o RG do paciente" 
+                                 label="RG do Paciente" required="true" 
+                                 required-message="O RG é um campo obrigatório" />
+                    
+                    <b:inputText value="#{pacienteBeans.p.cpf}" placeholder="Entre com o CPF do paciente"
+                                 mask="999.999.999-99" label="CPF do Paciente" 
+                                 required="true" required-message="O CPF é um campo obrigatório" />
+                    <b:inputText value="#{pacienteBeans.p.endereco}" 
+                                 placeholder="Entre com o endereço do paciente" label="Endereço do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.numero}" placeholder="Entre com o numero da casa do Paciente"
+                                 label="Número da Casa do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.complemento}" placeholder="Entre com o complemento do endereço do Paciente"
+                                 label="Complemento do endereço do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.bairro}" placeholder="Entre com o bairro do Paciente"
+                                 label="Bairro do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.cidade}" placeholder="Entre com a cidade do Paciente"
+                                 label="Cidade do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.uf}" placeholder="Entre com UF do Paciente"
+                                 label="UF do Paciente" />
+                    <b:inputText value="#{pacienteBeans.p.cep}" mask="99999-999" placeholder="Entre com o CEP do Paciente"
+                                 label="CEP do Paciente" />
+                                 
                     <b:commandButton value="Cadastrar" action="#{pacienteBeans.salvarPaciente()}" />
                     <b:messages />
-
+                    </b:panelGrid>
                     <b:dataTable 
                         var="paciente"
                         excel="true"

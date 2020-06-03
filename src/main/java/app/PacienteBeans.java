@@ -10,6 +10,9 @@ import infra.Paciente;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -26,11 +29,14 @@ public class PacienteBeans {
     public PacienteBeans() {
     }
     public String salvarPaciente(){
-        EntityManager em = JPAUtils.getEntityManager();
-        em.getTransaction().begin();
+      EntityManagerFactory emf = Persistence.createEntityManagerFactory("puc");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
         em.persist(p);
-        em.getTransaction().commit();
+        et.commit();
         em.close();
+        emf.close();
         return "pacientes";
     }
 
