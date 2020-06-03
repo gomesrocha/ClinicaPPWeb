@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      dir="ltr" >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./WEB-INF/template/modelo.xhtml">
+            <ui:define name="principal">
+                <h3>Cadastro de Paciente</h3>
+                <h:form>
+                    <b:inputText value="#{pacienteBean.paciente.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" required="true" requiredMessage="Digite o nome do paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.email}"  placeholder="Entre com o email do paciente" label="Email do Paciente">
+                        <f:facet name="prepend">
+                            <h:outputText value="@" />
+                        </f:facet>
+                    </b:inputText> <br />
+
+                    <b:inputText value="#{pacienteBean.paciente.telefone}" mask="(99)9999-9999" placeholder="Entre com o telefone do paciente" label="Telefone do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.celular}" mask="(99)9999-9999" placeholder="Entre com o celular do paciente" label="Celular do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.rg}" placeholder="Entre com o RG do paciente" label="RG do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.cpf}" mask="999.999.9999-99" placeholder="Entre com o CPF do paciente" label="CPF do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.diaNascimento}" mask="99" placeholder="Entre com o dia de nascimento" label="Dia nascimento do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.mesNascimento}" mask="99" placeholder="Entre com o mês de nascimento" label="Mês nascimento do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.anoNascimento}" mask="9999" placeholder="Entre com o ano de nascimento" label="Ano nascimento do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.endereco}" placeholder="Entre com o endereço do paciente" label="Endereço do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.numero}" placeholder="Entre com o número da casa do paciente" label="Número da casa do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.bairro}" placeholder="Entre com o bairro do paciente" label="Bairro do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.cidade}" placeholder="Entre com a cidade do paciente" label="Cidade do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.uf}" placeholder="Entre com o UF do paciente" label="UF do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.complemento}" placeholder="Entre com o complemento do paciente" label="Complemento do endereço do Paciente" /> <br />
+                    <b:inputText value="#{pacienteBean.paciente.cep}" mask="99999-99" placeholder="Entre com o CEP do paciente" label="CEP do Paciente" /> <br />
+                    
+                    <b:commandButton value="Cadastrar" action="#{pacienteBean.cadastrar()}" />
+                    <b:messages />
+
+                    <b:dataTable 
+                        var="paciente"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        print="true">
+                        
+                    </b:dataTable>
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
