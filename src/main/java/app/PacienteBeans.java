@@ -30,28 +30,34 @@ public class PacienteBeans {
      */
     private Paciente p = new Paciente();
     private List<Paciente> pacientes = new ArrayList<Paciente>();
+
     
     public PacienteBeans() {
     }
+    public void excluir(Paciente p){
+        EntityManager em = JPAUtils.getEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        p = em.merge(p);
+        em.remove(p);
+        et.commit();
+        em.close();
+    }
     public String salvarPaciente(){
-      EntityManagerFactory emf = Persistence.createEntityManagerFactory("puc");
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = JPAUtils.getEntityManager();
         EntityTransaction et = em.getTransaction();
         et.begin();
         em.persist(p);
         et.commit();
         em.close();
-        emf.close();
-        return "listPacientes";
+        return "cadPaciente";
     }
 
     public List<Paciente> getPacientes() {   
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("puc");
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = JPAUtils.getEntityManager();
         Query q = em.createQuery("select p from Paciente p", Paciente.class);
         List<Paciente> ps = q.getResultList();
         em.close();
-        emf.close();
         return ps;
     }
 

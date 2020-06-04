@@ -11,7 +11,7 @@
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
         <ui:composition template="./WEB-INF/template/modelo.xhtml">
             <ui:define name="principal">
-                O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
+                <h3>Listagem de Pacientes</h3>
                 <h:form>
                     <b:dataTable 
                         value="#{pacienteBeans.pacientes}"

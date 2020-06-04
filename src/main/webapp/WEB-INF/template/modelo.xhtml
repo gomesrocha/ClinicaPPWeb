@@ -9,11 +9,12 @@
         <meta name="author" content="Fabio Gomes Rocha" />
     </h:head>
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <f:loadBundle basename="messages" var="m" />
         <b:navBar brand="Clinica|Web" brandHref="index.xhtml" inverse="true" fixed="top">
             <b:navbarLinks>
                  <b:dropMenu value="Cadastros">
-                    <b:navLink value="Paciente" href="cadPaciente.xhtml"></b:navLink>
-                    <b:navLink value="Médico" href="cadMedico.xhtml"></b:navLink>
+                    <b:navLink value="#{m.pac}" href="cadPaciente.xhtml"></b:navLink>
+                    <b:navLink value="#{m.md}" href="cadMedico.xhtml"></b:navLink>
                     <b:navLink value="Atendente" href="cadAtendente.xhtml"></b:navLink>
                     <b:navLink></b:navLink>
                     <b:navLink header="Agenda"></b:navLink>

@@ -13,7 +13,11 @@
             <ui:define name="principal">
                 <h3>Cadastro de Paciente</h3>
                 <h:form>
-                    <b:panelGrid columns="1">
+                    <b:tabView pills="true" contentStyle="border: 1px solid #ddd;padding:10px">
+                      <b:tab title="Dados pessoais do paciente">
+                        
+
+                        <b:panelGrid columns="1">
                     <b:inputText value="#{pacienteBeans.p.nome}" placeholder="Entre com o nome do paciente" label="Nome do Paciente" 
                                  required="true" requiredMessage="Digita a o nome zé...." /> 
                     
@@ -43,6 +47,10 @@
                     <b:inputText value="#{pacienteBeans.p.cpf}" placeholder="Entre com o CPF do paciente"
                                  mask="999.999.999-99" label="CPF do Paciente" 
                                  required="true" required-message="O CPF é um campo obrigatório" />
+                        </b:panelGrid>
+                    </b:tab>
+                    <b:tab title="Endereço do paciente">
+                         <b:panelGrid columns="1">
                     <b:inputText value="#{pacienteBeans.p.endereco}" 
                                  placeholder="Entre com o endereço do paciente" label="Endereço do Paciente" />
                     <b:inputText value="#{pacienteBeans.p.numero}" placeholder="Entre com o numero da casa do Paciente"
@@ -57,11 +65,37 @@
                                  label="UF do Paciente" />
                     <b:inputText value="#{pacienteBeans.p.cep}" mask="99999-999" placeholder="Entre com o CEP do Paciente"
                                  label="CEP do Paciente" />
-                                 
+                    
+                    </b:panelGrid>
+                    </b:tab>
+                    </b:tabView>                    
                     <b:commandButton value="Cadastrar" action="#{pacienteBeans.salvarPaciente()}" />
                     <b:messages />
-                    </b:panelGrid>
-                    
+                </h:form>
+                O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
+                <h:form>
+                    <b:dataTable 
+                        value="#{pacienteBeans.pacientes}"
+                        var="paciente"
+                        excel="true"
+                        csv="true"
+                        pdf="true"
+                        print="true">
+                        <b:dataTableColumn value="#{paciente.idpaciente}"  order="desc" label="ID" />
+                        <b:dataTableColumn value="#{paciente.nome}" />
+                        <b:dataTableColumn value="#{paciente.telefone}" />
+                        <b:dataTableColumn value="#{paciente.celular}" />
+                        <b:dataTableColumn value="#{paciente.email}" />
+                        <b:dataTableColumn value="#{paciente.endereco}" />
+                        <b:dataTableColumn value="#{paciente.bairro}" />
+                        <b:dataTableColumn value="#{paciente.cidade}" />
+                        <b:dataTableColumn>
+                            <f:facet name="header"> Ações </f:facet>
+                            <h:commandLink action="#{pacienteBeans.excluir(paciente)}">
+                            Excluir</h:commandLink>
+                        </b:dataTableColumn>
+
+                    </b:dataTable>
                 </h:form>
             </ui:define>
             <ui:define name="coluna1">
