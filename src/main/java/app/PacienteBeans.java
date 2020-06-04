@@ -34,6 +34,9 @@ public class PacienteBeans {
     
     public PacienteBeans() {
     }
+    public void selecionar(Paciente p){
+        this.p = p;
+    }
     public void excluir(Paciente p){
         EntityManager em = JPAUtils.getEntityManager();
         EntityTransaction et = em.getTransaction();
@@ -47,10 +50,10 @@ public class PacienteBeans {
         EntityManager em = JPAUtils.getEntityManager();
         EntityTransaction et = em.getTransaction();
         et.begin();
-        em.persist(p);
+        em.merge(p);
         et.commit();
         em.close();
-        return "cadPaciente";
+        return "cadPaciente"; 
     }
 
     public List<Paciente> getPacientes() {   

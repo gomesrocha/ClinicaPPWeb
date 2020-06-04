@@ -69,7 +69,7 @@
                     </b:panelGrid>
                     </b:tab>
                     </b:tabView>                    
-                    <b:commandButton value="Cadastrar" action="#{pacienteBeans.salvarPaciente()}" />
+                    <b:commandButton value="Salvar" action="#{pacienteBeans.salvarPaciente()}" />
                     <b:messages />
                 </h:form>
                 O Paciente #{pacienteBeans.p.nome} foi cadastrado com sucesso!!!
@@ -93,6 +93,9 @@
                             <f:facet name="header"> Ações </f:facet>
                             <h:commandLink action="#{pacienteBeans.excluir(paciente)}">
                             Excluir</h:commandLink>
+                            |
+                            <h:commandLink action="#{pacienteBeans.selecionar(paciente)}">
+                            Selecionar</h:commandLink>
                         </b:dataTableColumn>
 
                     </b:dataTable>
